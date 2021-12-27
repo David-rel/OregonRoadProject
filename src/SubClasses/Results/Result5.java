@@ -7,9 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Result2 extends JFrame implements ActionListener {
+public class Result5 extends JFrame implements ActionListener {
 
-    JLabel RESULTS2 = new JLabel();
+    JLabel RESULTS4 = new JLabel();
 
     JButton NEXT_BUTTON = new JButton("NEXT");
 
@@ -22,7 +22,7 @@ public class Result2 extends JFrame implements ActionListener {
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public Result2(String info, int TrailIdentifier) {
+    public Result5(String info) {
         MainGamePanel = new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);
 
@@ -39,19 +39,15 @@ public class Result2 extends JFrame implements ActionListener {
         BACKGROUND_PANEL.setSize(SCREEN_SIZE);
         BACKGROUND_PANEL.setBackground(Color.BLACK);
 
-        RESULTS2.setVisible(true);
-        RESULTS2.setBorder(BorderFactory.createLineBorder(new Color(0, 250, 0)));
-        RESULTS2.setBounds(10, 10, 965, 300);
-        RESULTS2.setForeground(new Color(0, 250, 0));
-        RESULTS2.setFont(new Font("Arial", Font.BOLD, 20));
-        RESULTS2.setFocusable(false);
-        RESULTS2.setText(info);
-        RESULTS2.setHorizontalAlignment(SwingConstants.CENTER);
+        RESULTS4.setVisible(true);
+        RESULTS4.setBorder(BorderFactory.createLineBorder(new Color(0, 250, 0)));
+        RESULTS4.setBounds(10, 10, 965, 300);
+        RESULTS4.setForeground(new Color(0, 250, 0));
+        RESULTS4.setFont(new Font("Arial", Font.BOLD, 20));
+        RESULTS4.setFocusable(false);
+        RESULTS4.setText(info);
+        RESULTS4.setHorizontalAlignment(SwingConstants.CENTER);
 
-        if(TrailIdentifier == 2){
-            Result5 R5 = new Result5(info);
-            this.dispose();
-        }
 
         NEXT_BUTTON.setVisible(true);
         NEXT_BUTTON.setBounds(500, 400, 100, 50);
@@ -62,7 +58,7 @@ public class Result2 extends JFrame implements ActionListener {
 
         MainGamePanel.add(BACKGROUND_PANEL, Integer.valueOf(0));
         MainGamePanel.add(NEXT_BUTTON, Integer.valueOf(1));
-        MainGamePanel.add(RESULTS2, Integer.valueOf(1));
+        MainGamePanel.add(RESULTS4, Integer.valueOf(1));
 
 
         this.add(MainGamePanel);
@@ -75,7 +71,7 @@ public class Result2 extends JFrame implements ActionListener {
         DayCheck = DayCheck + 1;
 
         if(e.getSource() == NEXT_BUTTON){
-            OregonRoadMain.CheckDay();
+            OregonRoadMain.CheckDaySetTrail();
             this.dispose();
         }
     }

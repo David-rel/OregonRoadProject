@@ -230,20 +230,27 @@ public class BankClass extends JFrame implements ActionListener {
             else if(PROMPT.getText().equals("how much money would you like to return")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.DoBankThings(3, 1);
+                    this.dispose();
                 }
                 else if(ANSWER.getText().equals("2")){
                     OregonRoadMain.DoBankThings(3, 2);
+                    this.dispose();
                 }
                 else if(ANSWER.getText().equals("3")){
                     OregonRoadMain.DoBankThings(3, 3);
+                    this.dispose();
                 }
                 else if(ANSWER.getText().equals("4")){
                     OregonRoadMain.DoBankThings(3, 4);
+                    this.dispose();
                 }
                 else {
                     PROBLEM_BOX.setText("please only type 1, 2, 3 or 4 in the answer box");
                 }
-                this.dispose();
+
+            }
+            else {
+                PROBLEM_BOX.setText("please only type 1, 2, 3 or 4 in the answer box");
             }
 
         }

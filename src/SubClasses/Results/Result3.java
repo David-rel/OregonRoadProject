@@ -22,7 +22,7 @@ public class Result3 extends JFrame implements ActionListener {
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public Result3(String info) {
+    public Result3(String info, int TrailIdentifier) {
         MainGamePanel = new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);
 
@@ -48,6 +48,10 @@ public class Result3 extends JFrame implements ActionListener {
         RESULTS3.setText(info);
         RESULTS3.setHorizontalAlignment(SwingConstants.CENTER);
 
+        if(TrailIdentifier == 2){
+            Result5 R5 = new Result5(info);
+            this.dispose();
+        }
 
         NEXT_BUTTON.setVisible(true);
         NEXT_BUTTON.setBounds(500, 400, 100, 50);

@@ -41,7 +41,7 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
 
         this.setPreferredSize(SCREEN_SIZE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Sell Shop Ask Specific");
+        this.setTitle("Sell Shop Ask Specfic");
         this.setResizable(false);
         this.pack();
         this.setVisible(true);
@@ -173,75 +173,66 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
         if (e.getSource() == ENTER_BUTTON) {
             if(CHOICE1.getText().equals("Wheel: 20")){
                 if(ANSWER.getText().equals("1")){
-
+                    OregonRoadMain.GiveItem("wheel");
                 }
                 if(ANSWER.getText().equals("2")){
-
+                    OregonRoadMain.GiveItem("cloth");
                 }
                 if(ANSWER.getText().equals("3")){
-
+                    OregonRoadMain.GiveItem("horse");
                 }
                 if(ANSWER.getText().equals("4")){
-
+                    OregonRoadMain.GiveItem("steering");
                 }
-                else{
 
-                }
             }
             if(CHOICE1.getText().equals("Flu: 20")){
                 if(ANSWER.getText().equals("1")){
-
+                    OregonRoadMain.GiveItem("flu");
                 }
                 if(ANSWER.getText().equals("2")){
-
+                    OregonRoadMain.GiveItem("measels");
                 }
                 if(ANSWER.getText().equals("3")){
-
+                    OregonRoadMain.GiveItem("bandages");
                 }
                 if(ANSWER.getText().equals("4")){
-
+                    OregonRoadMain.GiveItem("dissentary");
                 }
-                else{
 
-                }
             }
             if(CHOICE1.getText().equals("50 food: 5")){
                 if(ANSWER.getText().equals("1")){
-
+                    OregonRoadMain.GiveItem("50 food");
                 }
                 if(ANSWER.getText().equals("2")){
-
+                    OregonRoadMain.GiveItem("100 food");
                 }
                 if(ANSWER.getText().equals("3")){
-
+                    OregonRoadMain.GiveItem("200 food");
                 }
                 if(ANSWER.getText().equals("4")){
-
-                }
-                else{
-
+                    OregonRoadMain.GiveItem("250 food");
                 }
             }
             if(CHOICE1.getText().equals("Shotgun: 60")){
                 if(ANSWER.getText().equals("1")){
-
+                    OregonRoadMain.GiveItem("shotgun");
                 }
                 if(ANSWER.getText().equals("2")){
-
+                    OregonRoadMain.GiveItem("5 Shotgun ammo");
                 }
                 if(ANSWER.getText().equals("3")){
-
+                    OregonRoadMain.GiveItem("10 Shotgun ammo");
                 }
                 if(ANSWER.getText().equals("4")){
-
+                    OregonRoadMain.GiveItem("20 Shotgun ammo");
                 }
-                else{
 
-                }
             }
-//            else {
-//                PROBLEM_BOX.setText("please only type 1, 2, or 4 in the answer box");
-//            }
+            else {
+                PROBLEM_BOX.setText("please only type 1, 2, or 4 in the answer box");
+            }
 
         }
     }

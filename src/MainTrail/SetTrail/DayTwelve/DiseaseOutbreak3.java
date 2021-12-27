@@ -89,13 +89,8 @@ public class DiseaseOutbreak3 extends JFrame implements ActionListener {
         DAYS.setVisible(true);
         DAYS.setBounds(10,-100,500,300);
         DAYS.setForeground(new Color(0,250,0));
-        if(days == 11){
-            PROMPT.setText("Day Eleven: some gets dissentary. Do you.");
-        }
-        else{
-            PROMPT.setText("Day Twelve:  some gets dissentary. Do you.");
-        }
         DAYS.setFont(new Font("Arial", Font.ITALIC, 25));
+        DAYS.setText("Days: " + days);
 
         DIFFICULTY.setVisible(true);
         DIFFICULTY.setBounds(735,-100,500,300);
