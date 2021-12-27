@@ -174,64 +174,94 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
             if(CHOICE1.getText().equals("Wheel: 20")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("wheel");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("2")){
+                else if(ANSWER.getText().equals("2")){
                     OregonRoadMain.GiveItem("cloth");
+                    this.dispose();
+
                 }
-                if(ANSWER.getText().equals("3")){
+                else if(ANSWER.getText().equals("3")){
                     OregonRoadMain.GiveItem("horse");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("4")){
+                else if(ANSWER.getText().equals("4")){
                     OregonRoadMain.GiveItem("steering");
+                    this.dispose();
+                }
+                else{
+                    PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
                 }
 
+
             }
-            if(CHOICE1.getText().equals("Flu: 20")){
-                if(ANSWER.getText().equals("1")){
+            else if(CHOICE1.getText().equals("Flu: 20")){
+                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("flu");
-                }
-                if(ANSWER.getText().equals("2")){
+                     this.dispose();
+                 }
+                else if(ANSWER.getText().equals("2")){
                     OregonRoadMain.GiveItem("measels");
-                }
-                if(ANSWER.getText().equals("3")){
+                     this.dispose();
+                 }
+                else if(ANSWER.getText().equals("3")){
                     OregonRoadMain.GiveItem("bandages");
-                }
-                if(ANSWER.getText().equals("4")){
+                     this.dispose();
+                 }
+                else if(ANSWER.getText().equals("4")){
                     OregonRoadMain.GiveItem("dissentary");
+                     this.dispose();
+                 }
+                else{
+                    PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
                 }
 
             }
-            if(CHOICE1.getText().equals("50 food: 5")){
+            else if(CHOICE1.getText().equals("50 food: 5")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("50 food");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("2")){
+                else if(ANSWER.getText().equals("2")){
                     OregonRoadMain.GiveItem("100 food");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("3")){
+                else if(ANSWER.getText().equals("3")){
                     OregonRoadMain.GiveItem("200 food");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("4")){
+                else if(ANSWER.getText().equals("4")){
                     OregonRoadMain.GiveItem("250 food");
+                    this.dispose();
+                }
+                else{
+                    PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
                 }
             }
-            if(CHOICE1.getText().equals("Shotgun: 60")){
+            else if(CHOICE1.getText().equals("Shotgun: 60")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("shotgun");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("2")){
+                else if(ANSWER.getText().equals("2")){
                     OregonRoadMain.GiveItem("5 Shotgun ammo");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("3")){
+                else if(ANSWER.getText().equals("3")){
                     OregonRoadMain.GiveItem("10 Shotgun ammo");
+                    this.dispose();
                 }
-                if(ANSWER.getText().equals("4")){
+                else if(ANSWER.getText().equals("4")){
                     OregonRoadMain.GiveItem("20 Shotgun ammo");
+                    this.dispose();
+                }
+                else{
+                    PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
                 }
 
             }
             else {
-                PROBLEM_BOX.setText("please only type 1, 2, or 4 in the answer box");
+                PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
             }
 
         }

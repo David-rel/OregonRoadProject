@@ -219,25 +219,25 @@ public class GunFight extends JFrame implements ActionListener {
         if(e.getSource() == ENTER_BUTTON){
             if(ANSWER.getText().equals("1")){
                 choice = 1;
-                OregonRoadMain.GetResult(choice, 3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
 
             }
             else if(ANSWER.getText().equals("2")) {
                 choice = 2;
-                OregonRoadMain.GetResult(choice,3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
 
             }
             else if(ANSWER.getText().equals("3")){
                 choice = 3;
-                OregonRoadMain.GetResult(choice,3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
 
             }
             else if(ANSWER.getText().equals("4")) {
                 choice = 4;
-                OregonRoadMain.GetResult(choice,3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
 
             }

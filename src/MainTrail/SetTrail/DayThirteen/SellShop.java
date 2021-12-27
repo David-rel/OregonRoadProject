@@ -193,12 +193,12 @@ public class SellShop extends JFrame implements ActionListener {
         if(e.getSource() == ENTER_BUTTON){
             if(ANSWER.getText().equals("1")){
                 choice = 1;
-                OregonRoadMain.GetResult(choice,3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
             }
             else if(ANSWER.getText().equals("2")){
                 choice = 2;
-                OregonRoadMain.GetResult(choice, 3);
+                OregonRoadMain.GetResultSetTrail(choice);
                 this.dispose();
             }
             else{

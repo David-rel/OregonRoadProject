@@ -47,7 +47,7 @@ public class ShopAsk2 extends JFrame implements ActionListener {
 
         this.setPreferredSize(SCREEN_SIZE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Oregon Road");
+        this.setTitle("Shop Ask2");
         this.setResizable(false);
         this.pack();
         this.setVisible(true);
@@ -193,12 +193,12 @@ public class ShopAsk2 extends JFrame implements ActionListener {
         if(e.getSource() == ENTER_BUTTON){
             if(ANSWER.getText().equals("1")){
                 choice = "yes";
-                OregonRoadMain.ShopAskAnswer(choice);
+                OregonRoadMain.ShopAskAnswer2(choice);
                 this.dispose();
             }
             else if(ANSWER.getText().equals("2")){
                 choice = "no";
-                OregonRoadMain.ShopAskAnswer(choice);
+                OregonRoadMain.ShopAskAnswer2(choice);
                 this.dispose();
             }
             else{
