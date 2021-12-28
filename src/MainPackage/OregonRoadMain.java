@@ -1,14 +1,23 @@
 package MainPackage;
 
 import MainTrail.SetTrail.DayEight.GunFight;
+import MainTrail.SetTrail.DayEighteen.GunFight2;
 import MainTrail.SetTrail.DayElleven.Bank1;
 import MainTrail.SetTrail.DayElleven.BankClass;
+import MainTrail.SetTrail.DayFifteen.Casino;
+import MainTrail.SetTrail.DayFourteen.StopPoint2;
 import MainTrail.SetTrail.DayNine.BrokenPart3;
+import MainTrail.SetTrail.DayNineteen.DiseaseOutbreak4;
+import MainTrail.SetTrail.DaySeventeen.Bank2;
+import MainTrail.SetTrail.DaySixTeen.Waterfall2;
 import MainTrail.SetTrail.DayTen.ShopAsk2;
 import MainTrail.SetTrail.DayThirteen.SellCategoryItemAsk;
 import MainTrail.SetTrail.DayThirteen.SellShop;
 import MainTrail.SetTrail.DayThirteen.SellSpecificItemAsk;
 import MainTrail.SetTrail.DayTwelve.DiseaseOutbreak3;
+import MainTrail.SetTrail.DayTwenty.ShopAsk3;
+import MainTrail.SetTrail.DayTwentyOne.StopPoint3;
+import MainTrail.SetTrail.DayTwentyTwo.BrokenPart4;
 import MainTrail.StartTrail.DayOne.TrailChoice;
 import MainTrail.StartTrail.TrailOne.DayFive.BrokenPart;
 import MainTrail.StartTrail.TrailOne.DayFour.DiseaseOutBreak;
@@ -29,6 +38,10 @@ import SubClasses.MainPlayer.MainPlayerInfo;
 import SubClasses.Results.*;
 import SubClasses.map.Map;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
@@ -43,6 +56,7 @@ public class OregonRoadMain {
     static int days = 0;
     static boolean ShopsBeenAsked = false;
     static boolean SetTrailGetResults = false;
+    static boolean SetTrailGetResults2 = false;
     static int MapData = 0;
     static int LRT1 = 0;
     static int ShopAsk = 0;
@@ -147,6 +161,17 @@ public class OregonRoadMain {
                     Bank1 B1 = new Bank1(money, food, miles, days, difficulty);
                 }
             }
+
+    public static void ShopAskAnswer3(String choice){
+        if (choice.equals("yes")) {
+            ShopItems SI = new ShopItems(money, food, miles, days, difficulty);
+        }
+        if (choice.equals("no")) {
+            days = days + 1;
+            check_days++;
+            StopPoint3 SP3 = new StopPoint3(money, food, miles, days, difficulty);
+        }
+    }
     public static void ShopItemsAnswer(int i, int choice){
 
         if(choice == 1){
@@ -237,7 +262,10 @@ public class OregonRoadMain {
                 money = money - 35;
             }
         }
-        if(SetTrailGetResults == true){
+        if(SetTrailGetResults2 == true){
+            ShopAsk3 SA3 = new ShopAsk3(money, food, miles, days, difficulty);
+        }
+        else if(SetTrailGetResults == true){
             ShopAsk2 SA2 = new ShopAsk2(money, food, miles, days, difficulty);
         }else {
             ShopAsk SA = new ShopAsk(money, food, miles, days, difficulty);
@@ -436,7 +464,7 @@ public class OregonRoadMain {
                     }
                 }
 
-                ResultCall = 7;
+                ResultCall = 0;
             }
         } else if (TrailChoice == 2) {
             check_days = 8;
@@ -605,7 +633,6 @@ public class OregonRoadMain {
         //might make a new class here
 
         public static void GetResultSetTrail(int choice){
-            SetTrailGetResults = true;
             String info = "";
             ResultCall++;
             System.out.println("New Trail " + ResultCall);
@@ -677,7 +704,6 @@ public class OregonRoadMain {
                         info = "you ignore it";
                         Result3 R3 = new Result3(info,2);
                     }
-                    //works up to here
 
                 }
                 if (ResultCall == 4) {
@@ -691,7 +717,8 @@ public class OregonRoadMain {
                             Result1 R1 = new Result1(info,2);
 
                         }
-                    } else if (choice == 2) {
+                    }
+                    else if (choice == 2) {
                         int RandChoice = r.nextInt(2);
                         System.out.println(RandChoice);
                         if (RandChoice == 0) {
@@ -713,7 +740,137 @@ public class OregonRoadMain {
                         Result2 R2 = new Result2(info,2);
                     }
                 }
+                if(ResultCall == 6){
+                    if(choice == 1){
+                        info = "you go into the stop point for a while";
+                        Result1 R1 = new Result1(info,2);
+                    }
+                    else if(choice == 2){
+                        info = "you ignore it";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                }
+                if(ResultCall == 7){
+                    if(choice == 1){
+                        info = "you go into the casino";
+                        Result1 R1 = new Result1(info,2);
+                    }
+                    else if(choice == 2){
+                        info = "you ignore it";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                }
+                if(ResultCall == 8){
+                    if(choice == 1){
+                        info = "you go shower in the waterfall";
+                        Result1 R1 = new Result1(info,2);
+                    }
+                    else if(choice == 2){
+                        info = "you ignore it";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                }
+                if(ResultCall == 9){
+                    if(choice == 1){
+                        info = "you go into the bank";
+                        Result1 R1 = new Result1(info,2);
+                    }
+                    else if(choice == 2){
+                        info = "you ignore it";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                }
+            if (ResultCall == 10) {
+                if (choice == 1) {
+                    if (CheckGunAndAmmo() == 1) {
+                        if ((RandChance() == 1) || (RandChance() == 2)) {
+                            info = "you kill one of the muggers and the rest of them run off";
+                            Result1 R1 = new Result1(info, 2);
+                        } else {
+                            info = "you try kill to one of the muggers and you fail and they kill one of you.";
+                            Result1 R1 = new Result1(info, 2);
+                        }
+
+                    } else if (CheckGunAndAmmo() == 2) {
+                        info = "you don't have any bullets and someone dies";
+                        Result1 R1 = new Result1(info, 2);
+                    } else if (CheckGunAndAmmo() == 3) {
+                        info = "you don't have a gun and someone dies";
+                        Result1 R1 = new Result1(info, 2);
+                    }
+                } else if (choice == 2) {
+                    if (RandChance() == 1) {
+                        info = "you successfully hide from them";
+                        Result2 R2 = new Result2(info, 2);
+                    } else {
+                        info = "you get caught and they mug you";
+                        Result2 R2 = new Result2(info, 2);
+                    }
+                } else if (choice == 3) {
+                    if (RandChance() == 1) {
+                        info = "you run faster then them and escape";
+                        Result3 R3 = new Result3(info, 2);
+                    } else {
+                        info = "you get caught running from them and they mug you";
+                        Result3 R3 = new Result3(info,2);
+                    }
+                } else if (choice == 4) {
+                    info = "they don't want to make peace and they steal your stuff and hurt you";
+                    Result4 R4 = new Result4(info,2);
+                }
             }
+            if (ResultCall == 11) {
+                if (choice == 1) {
+                    if (CheckMeasels() == 1) {
+                        info = "you successfully heal measles";
+                        Result1 R1 = new Result1(info,2);
+
+                    } else if (CheckMeasels() == 2) {
+                        info = "you don't have a measels med and so he dies";
+                        Result1 R1 = new Result1(info,2);
+
+                    }
+                }
+                else if (choice == 2) {
+                    int RandChoice = r.nextInt(2);
+                    System.out.println(RandChoice);
+                    if (RandChoice == 0) {
+                        info = "you ignore it and it heals itself";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                    else if (RandChoice == 1) {
+                        info = "you ignore it and someone dies";
+                        Result2 R2 = new Result2(info,2);
+                    }
+                }
+            }
+            if(ResultCall == 12){
+                if(choice == 1){
+                    info = "you go into the stop point for a while";
+                    Result1 R1 = new Result1(info,2);
+                }
+                else if(choice == 2){
+                    info = "you ignore it";
+                    Result2 R2 = new Result2(info,2);
+                }
+            }
+
+            if (ResultCall == 13) {
+                if (choice == 1) {
+                    if (CheckHorse() == 1) {
+                        info = "you get another horse";
+                        Result1 R1 = new Result1(info,2);
+                    } else if (CheckHorse() == 2) {
+                        info = "you don't have an extra horse";
+                        Result1 R1 = new Result1(info,2);
+
+                    }
+                } else if (choice == 2) {
+                    info = "you ignore it";
+                    Result2 R2 = new Result2(info,2);
+                }
+            }
+        }
 
 
 
@@ -798,6 +955,7 @@ public class OregonRoadMain {
             BrokenPart3 GF = new BrokenPart3(money, food, miles, days, difficulty);
         }
         if(check_days == 3){
+            SetTrailGetResults = true;
             ShopAsk2 GF = new ShopAsk2(money, food, miles, days, difficulty);
         }
         if(check_days == 4){
@@ -805,12 +963,47 @@ public class OregonRoadMain {
             System.out.println("Bank class sent in " + check_days);
         }
         if(check_days == 5){
+            SetTrailGetResults = false;
             System.out.println("disease call " + check_days);
             DiseaseOutbreak3 GF = new DiseaseOutbreak3(money, food, miles, days, difficulty);
         }
         if(check_days == 6){
             SellShop GF = new SellShop(money, food, miles, days, difficulty);
         }
+        if(check_days == 7){
+            StopPoint2 SP2 = new StopPoint2(money, food, miles, days, difficulty);
+        }
+        if(check_days == 8){
+            Casino C = new Casino(money, food, miles, days, difficulty);
+        }
+        if(check_days == 9){
+            Waterfall2 SP2 = new Waterfall2(money, food, miles, days, difficulty);
+        }
+        if(check_days == 10){
+            Bank2 SP2 = new Bank2(money, food, miles, days, difficulty);
+        }
+        if(check_days == 11){
+            GunFight2 SP2 = new GunFight2(money, food, miles, days, difficulty);
+        }
+        if(check_days == 12){
+            DiseaseOutbreak4 SP2 = new DiseaseOutbreak4(money, food, miles, days, difficulty);
+        }
+        if(check_days == 13){
+            SetTrailGetResults2 = true;
+            ShopAsk3 SA3 = new ShopAsk3(money, food, miles, days, difficulty);
+        }
+        if(check_days == 15){
+            BrokenPart4 BP4 = new BrokenPart4(money, food, miles, days, difficulty);
+        }
+        if(check_days == 16){
+            SetTrailGetResults2 = false;
+            CheckDayFinalTrail();
+            check_days = 0;
+        }
+    }
+
+    public static void CheckDayFinalTrail(){
+        System.out.println("last trail");
     }
 
     public static int CheckFlu(){
@@ -819,6 +1012,17 @@ public class OregonRoadMain {
             return 1;
         }
         else if(FluMed <= 0){
+            return 2;
+        }
+        return 0;
+    }
+
+    public static int CheckMeasels(){
+        if(MeaslesMed > 0){
+            MeaslesMed = MeaslesMed - 1;
+            return 1;
+        }
+        else if(MeaslesMed <= 0){
             return 2;
         }
         return 0;
@@ -843,6 +1047,18 @@ public class OregonRoadMain {
             return 1;
         }
         else if(Wheel <= 0){
+            return 2;
+        }
+
+        return 0;
+    }
+
+    private static int CheckHorse() {
+        if(Horse > 0){
+            Horse = Horse - 1;
+            return 1;
+        }
+        else if(Horse <= 0){
             return 2;
         }
 
