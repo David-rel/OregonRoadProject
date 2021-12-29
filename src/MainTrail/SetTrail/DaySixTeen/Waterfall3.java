@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Waterfall2 extends JFrame implements ActionListener {
+public class Waterfall3 extends JFrame implements ActionListener {
 
     ImageIcon TOP_PIC=new ImageIcon("top_part_real.jpg");
     ImageIcon BOTTOM_PIC=new ImageIcon("bottom_part_real.jpg");
@@ -45,7 +45,7 @@ public class Waterfall2 extends JFrame implements ActionListener {
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public Waterfall2(int money, int food, int miles, int days, String difficulty){
+    public Waterfall3(int money, int food, int miles, int days, String difficulty){
 
         MainGamePanel=new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);

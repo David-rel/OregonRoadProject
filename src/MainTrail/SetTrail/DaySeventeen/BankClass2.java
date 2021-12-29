@@ -1,4 +1,4 @@
-package MainTrail.StartTrail.TrailTwo.DayThree;
+package MainTrail.SetTrail.DaySeventeen;
 
 import MainPackage.OregonRoadMain;
 
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WaterFall12 extends JFrame implements ActionListener {
+public class BankClass2 extends JFrame implements ActionListener {
 
     ImageIcon TOP_PIC=new ImageIcon("top_part_real.jpg");
     ImageIcon BOTTOM_PIC=new ImageIcon("bottom_part_real.jpg");
@@ -20,9 +20,9 @@ public class WaterFall12 extends JFrame implements ActionListener {
     JLayeredPane MainGamePanel;
     JPanel BACKGROUND_PANEL=new JPanel();
 
-    JLabel CHOICE1 = new JLabel("1. Bathe in the Waterfall");
-    JLabel CHOICE2 = new JLabel("2. Ignore it");
-    JLabel CHOICE3 = new JLabel("3. Look at it");
+    JLabel CHOICE1 = new JLabel("1. ");
+    JLabel CHOICE2 = new JLabel("2. ");
+    JLabel CHOICE3 = new JLabel("3. ");
     JLabel CHOICE4 = new JLabel("4. ");
 
     JButton WAGON_BUTTON = new JButton("WAGON");
@@ -33,24 +33,23 @@ public class WaterFall12 extends JFrame implements ActionListener {
 
     JTextField ANSWER = new JTextField();
 
-    JLabel MILES = new JLabel();
-    JLabel DIFFICULTY = new JLabel();
-    JLabel MONEY = new JLabel();
-    JLabel FOOD = new JLabel();
-    JLabel DAYS = new JLabel();
-
     static final int GAME_WIDTH=1000;
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public WaterFall12(int money, int food, int miles, int days, String difficulty){
+    static int MoneyOut = 0;
+    static String info = "";
+
+
+    public BankClass2(int choice, int Loans){
+
 
         MainGamePanel=new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);
 
         this.setPreferredSize(SCREEN_SIZE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Water Fall2");
+        this.setTitle("Bank2");
         this.setResizable(false);
         this.pack();
         this.setVisible(true);
@@ -68,35 +67,6 @@ public class WaterFall12 extends JFrame implements ActionListener {
         ICON_LABEL_BOTTOM.setIcon(BOTTOM_PIC);
         ICON_LABEL_BOTTOM.setBounds(-240,300,1500,300);
 
-        MILES.setVisible(true);
-        MILES.setBounds(565,-100,500,300);
-        MILES.setForeground(new Color(0,250,0));
-        MILES.setText("MILES: " + miles);
-        MILES.setFont(new Font("Arial", Font.ITALIC, 25));
-
-        MONEY.setVisible(true);
-        MONEY.setBounds(270,-100,500,300);
-        MONEY.setForeground(new Color(0,250,0));
-        MONEY.setText("MONEY: " + money);
-        MONEY.setFont(new Font("Arial", Font.ITALIC, 25));
-
-        FOOD.setVisible(true);
-        FOOD.setBounds(110,-100,500,300);
-        FOOD.setForeground(new Color(0,250,0));
-        FOOD.setText("FOOD: " + food);
-        FOOD.setFont(new Font("Arial", Font.ITALIC, 25));
-
-        DAYS.setVisible(true);
-        DAYS.setBounds(10,-100,500,300);
-        DAYS.setForeground(new Color(0,250,0));
-        DAYS.setText("DAY: " + days);
-        DAYS.setFont(new Font("Arial", Font.ITALIC, 25));
-
-        DIFFICULTY.setVisible(true);
-        DIFFICULTY.setBounds(735,-100,500,300);
-        DIFFICULTY.setForeground(new Color(0,250,0));
-        DIFFICULTY.setText("DIFFICULTY: " + difficulty);
-        DIFFICULTY.setFont(new Font("Arial", Font.ITALIC, 25));
 
         ANSWER.setVisible(true);
         ANSWER.setBackground(new Color(250,250,250));
@@ -153,7 +123,32 @@ public class WaterFall12 extends JFrame implements ActionListener {
         PROMPT.setForeground(new Color(0,250,0));
         PROMPT.setFont(new Font("Arial", Font.BOLD, 20));
         PROMPT.setFocusable(false);
-        PROMPT.setText("Day Three: You find a waterfall. Do you.");
+        if(choice == 1){
+            if(Loans > 0){
+                PROMPT.setText("you already have a loan you need to pay that off first");
+                CHOICE1.setText("1. ok");
+            }
+            else {
+                PROMPT.setText("how much money would you like to get");
+                CHOICE1.setText("1. 50$");
+                CHOICE2.setText("2. 100$");
+                CHOICE3.setText("3. 200$");
+                CHOICE4.setText("4. 250$");
+            }
+        }
+        else{
+            if(Loans == 0){
+                PROMPT.setText("you don't have a loan to give back");
+                CHOICE1.setText("1. ok");
+            }
+            else if(Loans > 0){
+                PROMPT.setText("how much money would you like to return");
+                CHOICE1.setText("1. 50$");
+                CHOICE2.setText("2. 100$");
+                CHOICE3.setText("3. 200$");
+                CHOICE4.setText("4. 250$");
+            }
+        }
         PROMPT.setHorizontalAlignment(SwingConstants.CENTER);
 
         CHOICE1.setVisible(true);
@@ -183,11 +178,6 @@ public class WaterFall12 extends JFrame implements ActionListener {
         MainGamePanel.add(BACKGROUND_PANEL,Integer.valueOf(0));
         MainGamePanel.add(ICON_LABEL_BOTTOM,Integer.valueOf(1));
         MainGamePanel.add(ICON_LABEL_TOP,Integer.valueOf(1));
-        MainGamePanel.add(MILES, Integer.valueOf(2));
-        MainGamePanel.add(MONEY, Integer.valueOf(2));
-        MainGamePanel.add(DAYS, Integer.valueOf(2));
-        MainGamePanel.add(DIFFICULTY, Integer.valueOf(2));
-        MainGamePanel.add(FOOD, Integer.valueOf(2));
         MainGamePanel.add(ANSWER, Integer.valueOf(2));
         MainGamePanel.add(DIRECTIONS, Integer.valueOf(2));
         MainGamePanel.add(ENTER_BUTTON, Integer.valueOf(2));
@@ -210,25 +200,72 @@ public class WaterFall12 extends JFrame implements ActionListener {
         int choice = 0;
 
         if(e.getSource() == ENTER_BUTTON){
-            if(ANSWER.getText().equals("1")){
-                choice = 1;
-                OregonRoadMain.GetResult(choice,2);
+
+            if(PROMPT.getText().equals("how much money would you like to get")){
+
+                if(ANSWER.getText().equals("1")){
+                    OregonRoadMain.DoBankThings(1, 1);
+                }
+                else if(ANSWER.getText().equals("2")){
+                    OregonRoadMain.DoBankThings(1, 2);
+                }
+                else if(ANSWER.getText().equals("3")){
+                    OregonRoadMain.DoBankThings(1, 3);
+                }
+                else if(ANSWER.getText().equals("4")){
+                    OregonRoadMain.DoBankThings(1, 4);
+                }
+                else {
+                    PROBLEM_BOX.setText("please only type 1, 2, 3 or 4 in the answer box");
+                }
+
+                this.dispose();
+            }
+            else if(PROMPT.getText().equals("you don't have a loan to give back")){
+                if(ANSWER.getText().equals("1")){
+                    OregonRoadMain.DoBankThings(2, 1);
+                }
+                else {
+                    PROBLEM_BOX.setText("please only type 1 in the answer box");
+                }
                 this.dispose();
 
             }
-            else if(ANSWER.getText().equals("2")){
-                choice = 2;
-                OregonRoadMain.GetResult(choice,2);
+            else if(PROMPT.getText().equals("you already have a loan you need to pay that off first")){
+                if(ANSWER.getText().equals("1")){
+                    OregonRoadMain.CallBank1Class();
+                }
+                else {
+                    PROBLEM_BOX.setText("please only type 1 in the answer box");
+                }
                 this.dispose();
             }
-            else if(ANSWER.getText().equals("3")){
-                choice = 3;
-                OregonRoadMain.GetResult(choice,2);
-                this.dispose();
+            else if(PROMPT.getText().equals("how much money would you like to return")){
+                if(ANSWER.getText().equals("1")){
+                    OregonRoadMain.DoBankThings(3, 1);
+                    this.dispose();
+                }
+                else if(ANSWER.getText().equals("2")){
+                    OregonRoadMain.DoBankThings(3, 2);
+                    this.dispose();
+                }
+                else if(ANSWER.getText().equals("3")){
+                    OregonRoadMain.DoBankThings(3, 3);
+                    this.dispose();
+                }
+                else if(ANSWER.getText().equals("4")){
+                    OregonRoadMain.DoBankThings(3, 4);
+                    this.dispose();
+                }
+                else {
+                    PROBLEM_BOX.setText("please only type 1, 2, 3 or 4 in the answer box");
+                }
+
             }
             else {
-                PROBLEM_BOX.setText("please only type 1, 2 or 3 in the answer box");
+                PROBLEM_BOX.setText("please only type 1, 2, 3 or 4 in the answer box");
             }
+
         }
 
         if(e.getSource() == WAGON_BUTTON){

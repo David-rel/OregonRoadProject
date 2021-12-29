@@ -1,15 +1,16 @@
 package SubClasses.Results;
 
 import MainPackage.OregonRoadMain;
+import MainTrail.SetTrail.DayElleven.Bank1;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Result5 extends JFrame implements ActionListener {
+public class Result6 extends JFrame implements ActionListener {
 
-    JLabel RESULTS4 = new JLabel();
+    JLabel RESULTS1 = new JLabel();
 
     JButton NEXT_BUTTON = new JButton("NEXT");
 
@@ -22,13 +23,13 @@ public class Result5 extends JFrame implements ActionListener {
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public Result5(String info) {
+    public Result6(String info, int TrailIdentifier) {
         MainGamePanel = new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);
 
         this.setPreferredSize(SCREEN_SIZE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Trail ANSWER 5");
+        this.setTitle("bank ANSWER");
         this.setResizable(false);
         this.pack();
         this.setVisible(true);
@@ -39,15 +40,14 @@ public class Result5 extends JFrame implements ActionListener {
         BACKGROUND_PANEL.setSize(SCREEN_SIZE);
         BACKGROUND_PANEL.setBackground(Color.BLACK);
 
-        RESULTS4.setVisible(true);
-        RESULTS4.setBorder(BorderFactory.createLineBorder(new Color(0, 250, 0)));
-        RESULTS4.setBounds(10, 10, 965, 300);
-        RESULTS4.setForeground(new Color(0, 250, 0));
-        RESULTS4.setFont(new Font("Arial", Font.BOLD, 20));
-        RESULTS4.setFocusable(false);
-        RESULTS4.setText(info);
-        RESULTS4.setHorizontalAlignment(SwingConstants.CENTER);
-
+        RESULTS1.setVisible(true);
+        RESULTS1.setBorder(BorderFactory.createLineBorder(new Color(0, 250, 0)));
+        RESULTS1.setBounds(10, 10, 965, 300);
+        RESULTS1.setForeground(new Color(0, 250, 0));
+        RESULTS1.setFont(new Font("Arial", Font.BOLD, 20));
+        RESULTS1.setFocusable(false);
+        RESULTS1.setText(info);
+        RESULTS1.setHorizontalAlignment(SwingConstants.CENTER);
 
         NEXT_BUTTON.setVisible(true);
         NEXT_BUTTON.setBounds(500, 400, 100, 50);
@@ -58,8 +58,7 @@ public class Result5 extends JFrame implements ActionListener {
 
         MainGamePanel.add(BACKGROUND_PANEL, Integer.valueOf(0));
         MainGamePanel.add(NEXT_BUTTON, Integer.valueOf(1));
-        MainGamePanel.add(RESULTS4, Integer.valueOf(1));
-
+        MainGamePanel.add(RESULTS1, Integer.valueOf(1));
 
         this.add(MainGamePanel);
 
@@ -71,7 +70,7 @@ public class Result5 extends JFrame implements ActionListener {
         DayCheck = DayCheck + 1;
 
         if(e.getSource() == NEXT_BUTTON){
-            OregonRoadMain.CheckDaySetTrail();
+            OregonRoadMain.CallBank1Class();
             this.dispose();
         }
     }

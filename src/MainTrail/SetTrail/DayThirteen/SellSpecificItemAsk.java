@@ -121,28 +121,28 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
         CHOICE4.setFont(new Font("Arial", Font.BOLD, 20));
 
         if(LastChoice == 1){
-            CHOICE1.setText("Wheel: 20");
-            CHOICE2.setText("Cloth: 5");
-            CHOICE3.setText("Horse: 40");
-            CHOICE4.setText("Steering: 10");
+            CHOICE1.setText("1. Wheel: 20$");
+            CHOICE2.setText("2. Cloth: 5$");
+            CHOICE3.setText("3. Horse: 40$");
+            CHOICE4.setText("4. Steering: 10$");
         }
         else if(LastChoice == 2){
-            CHOICE1.setText("Flu: 20");
-            CHOICE2.setText("Measels: 25");
-            CHOICE3.setText("Bandages: 2");
-            CHOICE4.setText("Dissentary: 25");
+            CHOICE1.setText("1. Flu: 20$");
+            CHOICE2.setText("2. Measels: 25$");
+            CHOICE3.setText("3. Bandages: 2$");
+            CHOICE4.setText("4. Dissentary: 25$");
         }
         else if(LastChoice == 3){
-            CHOICE1.setText("50 food: 5");
-            CHOICE2.setText("100 food: 10");
-            CHOICE3.setText("200 food: 15");
-            CHOICE4.setText("250 food: 20");
+            CHOICE1.setText("1. 50 food: 5$");
+            CHOICE2.setText("2. 100 food: 10$");
+            CHOICE3.setText("3. 200 food: 15$");
+            CHOICE4.setText("4. 250 food: 20$");
         }
         else if(LastChoice == 4){
-            CHOICE1.setText("Shotgun: 60");
-            CHOICE2.setText("5 Shotgun ammo: 7");
-            CHOICE3.setText("10 Shotgun ammo: 15");
-            CHOICE4.setText("20 Shotgun ammo: 30");
+            CHOICE1.setText("1. Shotgun: 60$");
+            CHOICE2.setText("2. 5 Shotgun ammo: 7$");
+            CHOICE3.setText("3. 10 Shotgun ammo: 15$");
+            CHOICE4.setText("4. 20 Shotgun ammo: 30$");
         }
 
 
@@ -171,7 +171,7 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
         int NewDay = 1;
 
         if (e.getSource() == ENTER_BUTTON) {
-            if(CHOICE1.getText().equals("Wheel: 20")){
+            if(CHOICE1.getText().equals("1. Wheel: 20$")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("wheel");
                     this.dispose();
@@ -195,7 +195,7 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
 
 
             }
-            else if(CHOICE1.getText().equals("Flu: 20")){
+            else if(CHOICE1.getText().equals("1. Flu: 20$")){
                  if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("flu");
                      this.dispose();
@@ -217,7 +217,7 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
                 }
 
             }
-            else if(CHOICE1.getText().equals("50 food: 5")){
+            else if(CHOICE1.getText().equals("1. 50 food: 5$")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("50 food");
                     this.dispose();
@@ -238,7 +238,7 @@ public class SellSpecificItemAsk extends JFrame implements ActionListener {
                     PROBLEM_BOX.setText("please only type 1, 2, 3, or 4 in the answer box");
                 }
             }
-            else if(CHOICE1.getText().equals("Shotgun: 60")){
+            else if(CHOICE1.getText().equals("1. Shotgun: 60$")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.GiveItem("shotgun");
                     this.dispose();

@@ -1,4 +1,4 @@
-package MainTrail.SetTrail.DaySeventeen;
+package MainTrail.StartTrail.TrailTwo.DayThree;
 
 import MainPackage.OregonRoadMain;
 
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Bank2 extends JFrame implements ActionListener {
+public class WaterFall2 extends JFrame implements ActionListener {
 
     ImageIcon TOP_PIC=new ImageIcon("top_part_real.jpg");
     ImageIcon BOTTOM_PIC=new ImageIcon("bottom_part_real.jpg");
@@ -20,9 +20,9 @@ public class Bank2 extends JFrame implements ActionListener {
     JLayeredPane MainGamePanel;
     JPanel BACKGROUND_PANEL=new JPanel();
 
-    JLabel CHOICE1 = new JLabel("1. Go in it");
+    JLabel CHOICE1 = new JLabel("1. Bathe in the Waterfall");
     JLabel CHOICE2 = new JLabel("2. Ignore it");
-    JLabel CHOICE3 = new JLabel("3. ");
+    JLabel CHOICE3 = new JLabel("3. Look at it");
     JLabel CHOICE4 = new JLabel("4. ");
 
     JButton WAGON_BUTTON = new JButton("WAGON");
@@ -43,14 +43,14 @@ public class Bank2 extends JFrame implements ActionListener {
     static final int GAME_HEIGHT=(int)(GAME_WIDTH*(0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
 
-    public Bank2(int money, int food, int miles, int days, String difficulty){
+    public WaterFall2(int money, int food, int miles, int days, String difficulty){
 
         MainGamePanel=new JLayeredPane();
         MainGamePanel.setPreferredSize(SCREEN_SIZE);
 
         this.setPreferredSize(SCREEN_SIZE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Bank2");
+        this.setTitle("Water Fall12");
         this.setResizable(false);
         this.pack();
         this.setVisible(true);
@@ -89,8 +89,8 @@ public class Bank2 extends JFrame implements ActionListener {
         DAYS.setVisible(true);
         DAYS.setBounds(10,-100,500,300);
         DAYS.setForeground(new Color(0,250,0));
+        DAYS.setText("DAY: " + days);
         DAYS.setFont(new Font("Arial", Font.ITALIC, 25));
-        DAYS.setText("Days: " + days);
 
         DIFFICULTY.setVisible(true);
         DIFFICULTY.setBounds(735,-100,500,300);
@@ -153,12 +153,8 @@ public class Bank2 extends JFrame implements ActionListener {
         PROMPT.setForeground(new Color(0,250,0));
         PROMPT.setFont(new Font("Arial", Font.BOLD, 20));
         PROMPT.setFocusable(false);
-        if(days == 12){
-            PROMPT.setText("Day Seventeen: You find a bank. Do you.");
-        }
-        else{
-            PROMPT.setText("Day Eighteen: You find a bank. Do you.");
-        }         PROMPT.setHorizontalAlignment(SwingConstants.CENTER);
+        PROMPT.setText("Day Three: You find a waterfall. Do you.");
+        PROMPT.setHorizontalAlignment(SwingConstants.CENTER);
 
         CHOICE1.setVisible(true);
         CHOICE1.setBounds(10,200,475,50);
@@ -216,21 +212,22 @@ public class Bank2 extends JFrame implements ActionListener {
         if(e.getSource() == ENTER_BUTTON){
             if(ANSWER.getText().equals("1")){
                 choice = 1;
-                OregonRoadMain.CallBankClass2(choice);
+                OregonRoadMain.GetResult(choice,2);
                 this.dispose();
 
             }
             else if(ANSWER.getText().equals("2")){
                 choice = 2;
-                OregonRoadMain.CallBankClass2(choice);
+                OregonRoadMain.GetResult(choice,2);
                 this.dispose();
             }
             else if(ANSWER.getText().equals("3")){
                 choice = 3;
-                OregonRoadMain.CallBankClass2(choice);
+                OregonRoadMain.GetResult(choice,2);
                 this.dispose();
-            }else {
-                PROBLEM_BOX.setText("please only type 1 or 2 in the answer box");
+            }
+            else {
+                PROBLEM_BOX.setText("please only type 1, 2 or 3 in the answer box");
             }
         }
 

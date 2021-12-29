@@ -124,19 +124,24 @@ public class BankClass extends JFrame implements ActionListener {
         PROMPT.setFont(new Font("Arial", Font.BOLD, 20));
         PROMPT.setFocusable(false);
         if(choice == 1){
-            PROMPT.setText("how much money would you like to get");
-            CHOICE1.setText("1. 50$");
-            CHOICE2.setText("2. 100$");
-            CHOICE3.setText("3. 200$");
-            CHOICE4.setText("4. 250$");
+            if(Loans > 0){
+                PROMPT.setText("you already have a loan you need to pay that off first");
+                CHOICE1.setText("1. ok");
+            }
+            else {
+                PROMPT.setText("how much money would you like to get");
+                CHOICE1.setText("1. 50$");
+                CHOICE2.setText("2. 100$");
+                CHOICE3.setText("3. 200$");
+                CHOICE4.setText("4. 250$");
+            }
         }
-
         else{
             if(Loans == 0){
                 PROMPT.setText("you don't have a loan to give back");
                 CHOICE1.setText("1. ok");
             }
-            if(Loans > 0){
+            else if(Loans > 0){
                 PROMPT.setText("how much money would you like to return");
                 CHOICE1.setText("1. 50$");
                 CHOICE2.setText("2. 100$");
@@ -216,7 +221,6 @@ public class BankClass extends JFrame implements ActionListener {
 
                 this.dispose();
             }
-
             else if(PROMPT.getText().equals("you don't have a loan to give back")){
                 if(ANSWER.getText().equals("1")){
                     OregonRoadMain.DoBankThings(2, 1);
@@ -226,6 +230,15 @@ public class BankClass extends JFrame implements ActionListener {
                 }
                 this.dispose();
 
+            }
+            else if(PROMPT.getText().equals("you already have a loan you need to pay that off first")){
+                if(ANSWER.getText().equals("1")){
+                    OregonRoadMain.CallBank1Class();
+                }
+                else {
+                    PROBLEM_BOX.setText("please only type 1 in the answer box");
+                }
+                this.dispose();
             }
             else if(PROMPT.getText().equals("how much money would you like to return")){
                 if(ANSWER.getText().equals("1")){
